@@ -714,11 +714,12 @@
     navToggle.addEventListener('click', () => {
       navToggle.classList.toggle('open');
       navLinks.classList.toggle('open');
+      document.body.style.overflow = navLinks.classList.contains('open') ? 'hidden' : '';
       // Staggered fade in para los links en móvil
       const links = navLinks.querySelectorAll('a');
       links.forEach((link, index) => {
         if (navLinks.classList.contains('open')) {
-          link.style.transitionDelay = `${0.1 + (index * 0.05)}s`;
+          link.style.transitionDelay = `${0.2 + (index * 0.05)}s`;
         } else {
           link.style.transitionDelay = '0s';
         }
@@ -728,6 +729,7 @@
       link.addEventListener('click', () => {
         navToggle.classList.remove('open');
         navLinks.classList.remove('open');
+        document.body.style.overflow = '';
       });
     });
 
