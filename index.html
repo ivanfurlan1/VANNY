@@ -966,6 +966,29 @@
           quoteMarks.style.transform = `translateY(${qMove}px)`;
         }
       }
+
+      // Gallery Scroll Glow (Efecto de luz de los dioses)
+      const galleryCards = document.querySelectorAll('.gallery-content');
+      if (galleryCards.length > 0) {
+        galleryCards.forEach(card => {
+          // Usamos currentScroll para que el movimiento sea súper sedoso (interpolado)
+          const absoluteTop = card.getBoundingClientRect().top + window.pageYOffset;
+          const relativeTop = absoluteTop - currentScroll;
+          const viewportHeight = window.innerHeight;
+          const totalDistance = viewportHeight + card.offsetHeight;
+          const currentDistance = viewportHeight - relativeTop;
+          
+          let progress = currentDistance / totalDistance;
+          if (progress > -0.2 && progress < 1.2) { // Rango de visibilidad
+            progress = Math.max(0, Math.min(1, progress));
+            const angle = progress * 720; // 2 vueltas completas alrededor de la tarjeta
+            const yPos = progress * 100;  // Recorrido de 0% a 100% de la altura
+            card.style.setProperty('--glow-angle', `${angle}deg`);
+            card.style.setProperty('--glow-y', `${yPos}%`);
+          }
+        });
+      }
+
       requestAnimationFrame(renderParallax);
     }
     requestAnimationFrame(renderParallax);
@@ -1005,77 +1028,51 @@
     // =============================================
     // CURSOR GLOW — GPU Accelerated
     // =============================================
-    document.body.classList.add('custom-cursor');
-    const glow = document.createElement('div');
-    glow.className = 'cursor-glow';
-    glow.style.cssText = `
-      position: fixed; width: 40px; height: 40px; border-radius: 50%;
-      background: rgba(255, 255, 255, 1); mix-blend-mode: difference;
-      pointer-events: none; z-index: 9999;
-      transform: translate(-50%, -50%) scale(1); will-change: left, top, transform;
-      transition: opacity 0.5s, transform 0.4s var(--ease-out-expo), background 0.4s; opacity: 0;
-    `;
-    document.body.appendChild(glow);
+    if (window.innerWidth > 768 && window.matchMedia("(pointer: fine)").matches) {
+      document.body.classList.add('custom-cursor');
+      const glow = document.createElement('div');
+      glow.className = 'cursor-glow';
+      glow.style.cssText = `
+        position: fixed; width: 40px; height: 40px; border-radius: 50%;
+        background: rgba(255, 255, 255, 1); mix-blend-mode: difference;
+        pointer-events: none; z-index: 9999;
+        transform: translate(-50%, -50%) scale(1); will-change: left, top, transform;
+        transition: opacity 0.5s, transform 0.4s var(--ease-out-expo), background 0.4s; opacity: 0;
+      `;
+      document.body.appendChild(glow);
 
-    let glowX = 0, glowY = 0, targetX = 0, targetY = 0;
-    let isTouchDevice = false;
+      let glowX = 0, glowY = 0, targetX = 0, targetY = 0;
 
-    // Eventos táctiles para móviles
-    document.addEventListener('touchstart', (e) => {
-      isTouchDevice = true;
-      targetX = glowX = e.touches[0].clientX;
-      targetY = glowY = e.touches[0].clientY;
-      glow.style.left = glowX + 'px';
-      glow.style.top = glowY + 'px';
-      glow.style.opacity = '1';
-    }, { passive: true });
-
-    document.addEventListener('touchmove', (e) => {
-      targetX = e.touches[0].clientX;
-      targetY = e.touches[0].clientY;
-      if (glow.style.opacity === '0') glow.style.opacity = '1';
-    }, { passive: true });
-
-    document.addEventListener('touchend', () => {
-      glow.style.opacity = '0';
-    }, { passive: true });
-
-    document.addEventListener('touchcancel', () => {
-      glow.style.opacity = '0';
-    }, { passive: true });
-
-    // Eventos de mouse para escritorio
-    document.addEventListener('mousemove', (e) => {
-      if (isTouchDevice) return;
-      targetX = e.clientX; targetY = e.clientY;
-      if (glow.style.opacity === '0') glow.style.opacity = '1';
-    });
-    document.addEventListener('mouseleave', () => { 
-      if (!isTouchDevice) glow.style.opacity = '0'; 
-    });
-
-    const interactives = document.querySelectorAll('a, button, .route-card, .faq-question, .included-item, .feature-card');
-    interactives.forEach(el => {
-      el.addEventListener('mouseenter', () => {
-        if (isTouchDevice) return;
-        glow.style.transform = 'translate(-50%, -50%) scale(2.5)';
-        glow.style.background = 'rgba(255, 255, 255, 0.8)';
+      // Eventos de mouse para escritorio
+      document.addEventListener('mousemove', (e) => {
+        targetX = e.clientX; targetY = e.clientY;
+        if (glow.style.opacity === '0') glow.style.opacity = '1';
       });
-      el.addEventListener('mouseleave', () => {
-        if (isTouchDevice) return;
-        glow.style.transform = 'translate(-50%, -50%) scale(1)';
-        glow.style.background = 'rgba(255, 255, 255, 1)';
+      document.addEventListener('mouseleave', () => { 
+        glow.style.opacity = '0'; 
       });
-    });
 
-    function animGlow() {
-      glowX += (targetX - glowX) * 0.35;
-      glowY += (targetY - glowY) * 0.35;
-      glow.style.left = glowX + 'px';
-      glow.style.top = glowY + 'px';
+      const interactives = document.querySelectorAll('a, button, .route-card, .faq-question, .included-item, .feature-card');
+      interactives.forEach(el => {
+        el.addEventListener('mouseenter', () => {
+          glow.style.transform = 'translate(-50%, -50%) scale(2.5)';
+          glow.style.background = 'rgba(255, 255, 255, 0.8)';
+        });
+        el.addEventListener('mouseleave', () => {
+          glow.style.transform = 'translate(-50%, -50%) scale(1)';
+          glow.style.background = 'rgba(255, 255, 255, 1)';
+        });
+      });
+
+      function animGlow() {
+        glowX += (targetX - glowX) * 0.35;
+        glowY += (targetY - glowY) * 0.35;
+        glow.style.left = glowX + 'px';
+        glow.style.top = glowY + 'px';
+        requestAnimationFrame(animGlow);
+      }
       requestAnimationFrame(animGlow);
     }
-    requestAnimationFrame(animGlow);
   </script>
 </body>
 </html>
