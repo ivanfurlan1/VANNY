@@ -1,0 +1,1044 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>VAN NY — Itinerario Premium de Nueva York</title>
+  <meta name="description" content="El itinerario más completo y estratégico para recorrer Nueva York. 9 recorridos optimizados, +70 km curados, spots secretos, rooftops gratis y más." />
+  <meta name="keywords" content="Nueva York, itinerario, VAN NY, guía New York, recorridos NYC, turismo New York" />
+
+  <!-- OG Tags -->
+  <meta property="og:title" content="VAN NY — Itinerario Premium de Nueva York" />
+  <meta property="og:description" content="El itinerario más completo y estratégico para recorrer Nueva York." />
+  <meta property="og:type" content="website" />
+
+  <!-- Favicon -->
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🗽</text></svg>" />
+
+  <!-- Stylesheet -->
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+
+  <!-- ============ LOADING SCREEN ============ -->
+  <div id="loading-screen">
+    <div class="loading-panel panel-top"></div>
+    <div class="loading-panel panel-bottom"></div>
+    <div class="loading-content">
+      <div class="loading-logo">VAN NY</div>
+      <div class="loading-bar-container">
+        <div class="loading-bar" id="loading-bar"></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ============ NAVIGATION ============ -->
+  <nav id="main-nav">
+    <a href="#hero" class="nav-logo">VAN <span>NY</span></a>
+    <div class="nav-links" id="nav-links">
+      <a href="#intro">El Itinerario</a>
+      <a href="#routes">Recorridos</a>
+      <a href="#features">Ventajas</a>
+      <a href="#included">Incluye</a>
+      <a href="#faq">Preguntas</a>
+      <a href="#pricing" class="nav-cta">Comprar</a>
+    </div>
+    <div class="nav-toggle" id="nav-toggle" aria-label="Menú">
+      <span></span>
+      <span></span>
+      <span></span>
+    </div>
+  </nav>
+
+  <!-- ============ HERO ============ -->
+  <section id="hero">
+    <div class="hero-bg" id="hero-bg-parallax">
+      <img src="images/manhattan_golden_hour.png" alt="Manhattan al atardecer" id="hero-bg-img" />
+    </div>
+    <canvas id="hero-particles"></canvas>
+    <div class="hero-corner hero-corner--tl"></div>
+    <div class="hero-corner hero-corner--br"></div>
+    <div class="hero-content">
+      <p class="hero-eyebrow">Itinerario diseñado al detalle</p>
+      <div class="hero-line"></div>
+      <h1 class="hero-title">
+        <span class="hero-title-line"><span class="hero-title-word">NEW</span></span><br>
+        <span class="hero-title-line"><span class="hero-title-word"><em>YORK</em></span></span>
+      </h1>
+      <p class="hero-subtitle">La forma más inteligente de recorrer la ciudad</p>
+    </div>
+    <div class="hero-scroll-hint">
+      <span>Descubrí</span>
+      <div class="scroll-line"></div>
+    </div>
+  </section>
+
+  <!-- ============ INTRO ============ -->
+  <section id="intro">
+    <div class="container">
+      <div class="intro-grid">
+        <div class="intro-image-wrapper reveal-left">
+          <img src="images/brooklyn_bridge_walk.png" alt="Cruzando el Brooklyn Bridge al amanecer" />
+          <div class="intro-image-frame"></div>
+        </div>
+        <div class="intro-text reveal-right">
+          <p class="section-eyebrow">Sobre el itinerario</p>
+          <h2 class="section-title">Pensado para que cada paso <em>valga la pena</em></h2>
+          <p class="intro-description">
+            Este itinerario está diseñado con una planificación detallada, optimizado para que tanto quien visita por primera vez como quien ya conoce la ciudad la disfrute de la <strong>mejor manera posible</strong>. Combina los puntos icónicos que no te podés perder con joyitas y recorridos menos comunes que suman una mirada distinta de Nueva York.
+          </p>
+          <p class="intro-description">
+            Las rutas están optimizadas para caminar, aprovechando al máximo cada paso, con traslados en subte solo cuando realmente hace falta. Cada día está <strong>planeado al milímetro</strong>: desde la vista impactante al salir de una estación de subte específica hasta terminar el día en el lugar y momento justo.
+          </p>
+          <p class="intro-quote">
+            "Una forma concreta y estratégica de recorrer Nueva York, combinando lo mejor de cada zona con decisiones que marcan la diferencia."
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ STATS ============ -->
+  <section id="stats">
+    <div class="container">
+      <div class="stats-grid stagger-children">
+        <div class="stat-item">
+          <div class="stat-number" data-count="9">0</div>
+          <div class="stat-label">Recorridos detallados</div>
+        </div>
+        <div class="stat-item">
+          <div class="stat-number" data-count="70" data-suffix="+">0</div>
+          <div class="stat-label">Kilómetros curados</div>
+        </div>
+        <div class="stat-item">
+          <div class="stat-number" data-count="150" data-suffix="+">0</div>
+          <div class="stat-label">Puntos de interés</div>
+        </div>
+        <div class="stat-item">
+          <div class="stat-number" data-count="1">0</div>
+          <div class="stat-label">Mapa interactivo</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ ROUTES ============ -->
+  <section id="routes">
+    <div class="container">
+      <div class="routes-header reveal">
+        <p class="section-eyebrow">Los recorridos</p>
+        <h2 class="section-title">9 días diseñados con <em>precisión</em></h2>
+        <p class="routes-header-description">Cada recorrido está pensado para maximizar tu tiempo, con rutas que conectan los lugares de forma lógica y eficiente.</p>
+      </div>
+
+      <div class="routes-grid stagger-children">
+        <!-- Route 1 -->
+        <div class="route-card">
+          <div class="route-card-number">01</div>
+          <h3 class="route-card-title">Dumbo & Chinatown</h3>
+          <p class="route-card-subtitle">El primer impacto con la ciudad</p>
+          <p class="route-card-description">Desde el puente de Brooklyn hasta los rincones de Chinatown. Rooftops gratuitos, playas secretas y la foto clásica del Manhattan Bridge.</p>
+          <div class="route-card-meta">
+            <span class="route-meta-tag">☀️ Día despejado</span>
+            <span class="route-meta-tag">~8.5 km</span>
+            <span class="route-meta-tag">Media-Alta</span>
+          </div>
+        </div>
+
+        <!-- Route 2 -->
+        <div class="route-card">
+          <div class="route-card-number">02</div>
+          <h3 class="route-card-title">Midtown</h3>
+          <p class="route-card-subtitle">Paseo y compras</p>
+          <p class="route-card-description">Union Square, el Flatiron, Empire State, la Biblioteca Pública y Bryant Park. Cerrás el día en un rooftop con vista al skyline.</p>
+          <div class="route-card-meta">
+            <span class="route-meta-tag">🌥 Bueno o nublado</span>
+            <span class="route-meta-tag">~5.5 km</span>
+            <span class="route-meta-tag">Media-Baja</span>
+          </div>
+        </div>
+
+        <!-- Route 3 -->
+        <div class="route-card">
+          <div class="route-card-number">03</div>
+          <h3 class="route-card-title">WTC & Wall Street</h3>
+          <p class="route-card-subtitle">Distrito histórico</p>
+          <p class="route-card-description">Memorial del 11-S, el Oculus, Federal Hall, el Toro de Wall Street y ferry a Brooklyn. Historia, arquitectura y emoción.</p>
+          <div class="route-card-meta">
+            <span class="route-meta-tag">🌥 Bueno</span>
+            <span class="route-meta-tag">~9.5 km</span>
+            <span class="route-meta-tag">Media</span>
+          </div>
+        </div>
+
+        <!-- Route 4 -->
+        <div class="route-card">
+          <div class="route-card-number">04</div>
+          <h3 class="route-card-title">High Line</h3>
+          <p class="route-card-subtitle">Hasta Times Square</p>
+          <p class="route-card-description">Little Island, Chelsea Market, el High Line completo, Hudson Yards y terminás en Times Square desde un rooftop secreto.</p>
+          <div class="route-card-meta">
+            <span class="route-meta-tag">☀️ Día despejado</span>
+            <span class="route-meta-tag">~6.5 km</span>
+            <span class="route-meta-tag">Alta</span>
+          </div>
+        </div>
+
+        <!-- Route 5 -->
+        <div class="route-card">
+          <div class="route-card-number">05</div>
+          <h3 class="route-card-title">Staten Island</h3>
+          <p class="route-card-subtitle">Ferry y compras</p>
+          <p class="route-card-description">Ferry gratuito con vistas de la Estatua de la Libertad, compras en Empire Outlets y vuelta por el río hasta Manhattan.</p>
+          <div class="route-card-meta">
+            <span class="route-meta-tag">🌥 Bueno o nublado</span>
+            <span class="route-meta-tag">~4 km</span>
+            <span class="route-meta-tag">Baja</span>
+          </div>
+        </div>
+
+        <!-- Route 6 -->
+        <div class="route-card">
+          <div class="route-card-number">06</div>
+          <h3 class="route-card-title">Fifth Avenue</h3>
+          <p class="route-card-subtitle">Y rascacielos</p>
+          <p class="route-card-description">Grand Central, Summit One Vanderbilt, Chrysler Building, la Quinta Avenida y Rockefeller Center. Arquitectura al máximo.</p>
+          <div class="route-card-meta">
+            <span class="route-meta-tag">☀️ Día despejado</span>
+            <span class="route-meta-tag">~6 km</span>
+            <span class="route-meta-tag">Media-Alta</span>
+          </div>
+        </div>
+
+        <!-- Route 7 -->
+        <div class="route-card">
+          <div class="route-card-number">07</div>
+          <h3 class="route-card-title">Central Park</h3>
+          <p class="route-card-subtitle">Con miradores gratis</p>
+          <p class="route-card-description">El MET, Bethesda, Bow Bridge, Strawberry Fields y Columbus Circle. Un recorrido que te muestra el parque de verdad.</p>
+          <div class="route-card-meta">
+            <span class="route-meta-tag">☀️ Día despejado</span>
+            <span class="route-meta-tag">~10.5 km</span>
+            <span class="route-meta-tag">Alta</span>
+          </div>
+        </div>
+
+        <!-- Route 8 -->
+        <div class="route-card">
+          <div class="route-card-number">08</div>
+          <h3 class="route-card-title">Williamsburg & SoHo</h3>
+          <p class="route-card-subtitle">Barrios con carácter</p>
+          <p class="route-card-description">Arte urbano, calles de adoquines, el Friends apartment, Washington Square y la esencia bohemia de Greenwich Village.</p>
+          <div class="route-card-meta">
+            <span class="route-meta-tag">🌥 Bueno</span>
+            <span class="route-meta-tag">~8.5 km</span>
+            <span class="route-meta-tag">Alta</span>
+          </div>
+        </div>
+
+        <!-- Route 9 -->
+        <div class="route-card">
+          <div class="route-card-number">09</div>
+          <h3 class="route-card-title">Upper Manhattan</h3>
+          <p class="route-card-subtitle">Menos turístico</p>
+          <p class="route-card-description">Central Park Norte, Columbia University, la catedral más grande y The Cloisters: un museo medieval fuera del mapa.</p>
+          <div class="route-card-meta">
+            <span class="route-meta-tag">🌥 Bueno</span>
+            <span class="route-meta-tag">Flexible</span>
+            <span class="route-meta-tag">Baja</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ GALLERY ============ -->
+  <section id="gallery">
+    <!-- Row 1 -->
+    <div class="gallery-row">
+      <div class="gallery-image reveal">
+        <img src="images/dumbo_manhattan_bridge.png" alt="Manhattan Bridge desde Dumbo" />
+      </div>
+      <div class="gallery-text">
+        <p class="section-eyebrow">Rutas optimizadas</p>
+        <h3 class="section-title">Caminá más, <em>gastá menos</em></h3>
+        <p class="gallery-description">
+          Las rutas están diseñadas para aprovechar al máximo cada paso. Solo usás el subte cuando realmente hace falta, lo que permite descubrir rincones que otros pasan de largo, y ahorrás en transporte sin sacrificar nada del recorrido.
+        </p>
+      </div>
+    </div>
+
+    <!-- Row 2 -->
+    <div class="gallery-row">
+      <div class="gallery-image reveal">
+        <img src="images/central_park_aerial.png" alt="Central Park desde arriba" />
+      </div>
+      <div class="gallery-text">
+        <p class="section-eyebrow">Todo pensado</p>
+        <h3 class="section-title">Hasta el último <em>detalle</em></h3>
+        <p class="gallery-description">
+          Desde la vista impactante al salir de una estación de subte específica hasta terminar el día en el lugar y momento justo. Cada parada, cada giro, cada decisión está pensada para que tu experiencia sea completa.
+        </p>
+      </div>
+    </div>
+
+    <!-- Row 3 -->
+    <div class="gallery-row">
+      <div class="gallery-image reveal">
+        <img src="images/travel_flatlay.png" alt="Guía de viaje premium" />
+      </div>
+      <div class="gallery-text">
+        <p class="section-eyebrow">Más que turismo</p>
+        <h3 class="section-title">Una mirada <em>distinta</em></h3>
+        <p class="gallery-description">
+          No es solo un listado de lugares. Es una forma de entender la ciudad: curiosidades históricas, datos de arquitectura, spots para fotos únicas y recomendaciones que no vas a encontrar en ninguna guía convencional.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ FEATURES ============ -->
+  <section id="features">
+    <div class="container">
+      <div class="features-layout">
+        <div class="features-sticky">
+          <p class="section-eyebrow">¿Por qué VAN NY?</p>
+          <h2 class="section-title">No es un itinerario común. <em>Es tu ventaja</em> en la ciudad.</h2>
+          <p class="intro-description" style="margin-top: 1.5rem;">
+            Cada elemento del itinerario fue pensado para resolver un problema real que tiene cualquier viajero en Nueva York.
+          </p>
+        </div>
+
+        <div class="features-list" id="features-list">
+          <div class="feature-item">
+            <div class="feature-icon">🗺</div>
+            <div>
+              <h4 class="feature-title">Mapa interactivo personalizado</h4>
+              <p class="feature-text">Cada recorrido tiene su mapa con paradas estratégicas y gastronómicas marcadas. Los lugares prioritarios de comida están destacados para que sepas dónde conviene parar.</p>
+            </div>
+          </div>
+
+          <div class="feature-item">
+            <div class="feature-icon">🏙</div>
+            <div>
+              <h4 class="feature-title">Rooftops gratuitos con las mejores vistas</h4>
+              <p class="feature-text">Accedé a terrazas y miradores que la mayoría no conoce, sin pagar entrada, con vistas panorámicas de Manhattan, Brooklyn y más.</p>
+            </div>
+          </div>
+
+          <div class="feature-item">
+            <div class="feature-icon">🚻</div>
+            <div>
+              <h4 class="feature-title">Baños estratégicos en cada recorrido</h4>
+              <p class="feature-text">Baños limpios y poco concurridos distribuidos a lo largo de todos los recorridos, algunos con detalles sorprendentes como vistas increíbles.</p>
+            </div>
+          </div>
+
+          <div class="feature-item">
+            <div class="feature-icon">📸</div>
+            <div>
+              <h4 class="feature-title">Spots secretos para fotos únicas</h4>
+              <p class="feature-text">Lugares escondidos y menos transitados para sacarte fotos fuera de lo común, lejos de las aglomeraciones turísticas típicas.</p>
+            </div>
+          </div>
+
+          <div class="feature-item">
+            <div class="feature-icon">🍕</div>
+            <div>
+              <h4 class="feature-title">Comida buena y económica</h4>
+              <p class="feature-text">Recomendaciones de lugares donde comés bien sin gastar de más. Los restaurantes prioritarios están marcados con ícono especial en el mapa.</p>
+            </div>
+          </div>
+
+          <div class="feature-item">
+            <div class="feature-icon">🌦</div>
+            <div>
+              <h4 class="feature-title">Adaptado al clima del día</h4>
+              <p class="feature-text">Cada recorrido indica el clima ideal: soleado, nublado o lluvioso. Reorganizás tus días según el pronóstico sin perder nada.</p>
+            </div>
+          </div>
+
+          <div class="feature-item">
+            <div class="feature-icon">🛍</div>
+            <div>
+              <h4 class="feature-title">Shopping al final del día</h4>
+              <p class="feature-text">Las zonas de compras están ubicadas al final de cada recorrido para que no andes cargando bolsas durante todo el paseo.</p>
+            </div>
+          </div>
+
+          <div class="feature-item">
+            <div class="feature-icon">🎭</div>
+            <div>
+              <h4 class="feature-title">Museos gratis y datos clave</h4>
+              <p class="feature-text">Guía completa de museos con sus días y horarios de entrada gratuita. Lotería de Broadway, eventos gratuitos y más recursos incluidos.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ QUOTE ============ -->
+  <section id="quote-section">
+    <div class="container reveal">
+      <div class="quote-marks" id="quote-marks">"</div>
+      <blockquote class="main-quote">
+        Está pensado para equilibrar caminata, compras y descanso, con opciones para días soleados, nublados o de lluvia. Es una forma concreta y estratégica de recorrer Nueva York, combinando lo mejor de cada zona con decisiones que marcan la diferencia.
+      </blockquote>
+      <p class="quote-author">— Filosofía VAN NY</p>
+    </div>
+  </section>
+
+  <!-- ============ WHAT'S INCLUDED ============ -->
+  <section id="included">
+    <div class="container">
+      <div class="included-header reveal">
+        <p class="section-eyebrow">¿Qué incluye?</p>
+        <h2 class="section-title">Todo lo que necesitás en <em>un solo lugar</em></h2>
+      </div>
+
+      <div class="included-grid stagger-children">
+        <div class="included-item">
+          <span class="included-icon">📍</span>
+          <h4 class="included-title">9 recorridos completos</h4>
+          <p class="included-desc">Rutas detalladas día a día con descripciones de cada punto, indicaciones de subte y distancias.</p>
+        </div>
+
+        <div class="included-item">
+          <span class="included-icon">🗺</span>
+          <h4 class="included-title">Mapa interactivo</h4>
+          <p class="included-desc">Mapa personalizado con todos los recorridos, paradas, restaurantes y puntos de interés marcados.</p>
+        </div>
+
+        <div class="included-item">
+          <span class="included-icon">🏛</span>
+          <h4 class="included-title">Guía de museos</h4>
+          <p class="included-desc">Museos principales con días y horarios de entrada gratuita o con descuento.</p>
+        </div>
+
+        <div class="included-item">
+          <span class="included-icon">🛒</span>
+          <h4 class="included-title">Guía de shopping</h4>
+          <p class="included-desc">Outlets, tips de compras, cómo llegar y días recomendados para cada centro.</p>
+        </div>
+
+        <div class="included-item">
+          <span class="included-icon">🔗</span>
+          <h4 class="included-title">Links útiles</h4>
+          <p class="included-desc">Ferries, Broadway, eventos gratuitos, actividades de la semana y más recursos actualizados.</p>
+        </div>
+
+        <div class="included-item">
+          <span class="included-icon">📐</span>
+          <h4 class="included-title">Planificación flexible</h4>
+          <p class="included-desc">Niveles de intensidad, clima ideal y extensiones opcionales para personalizar cada día.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ PRICING ============ -->
+  <section id="pricing">
+    <div class="pricing-bg-text">VAN NY</div>
+    <div class="container pricing-content">
+      <div class="pricing-ambient-glow"></div>
+      <div class="routes-header reveal">
+        <p class="section-eyebrow" style="justify-content: center;">Obtené tu itinerario</p>
+        <h2 class="section-title">Tu viaje a Nueva York,<br><em>resuelto</em></h2>
+      </div>
+
+      <div class="pricing-card reveal-scale">
+        <p class="pricing-label">Itinerario completo</p>
+        <h3 class="pricing-title">VAN NY — Nueva York</h3>
+        <div class="pricing-amount"><span class="currency">USD</span> 60</div>
+        <p class="pricing-once">Pago único · Acceso inmediato</p>
+
+        <div class="pricing-divider"></div>
+
+        <ul class="pricing-features">
+          <li><span class="check">✓</span> 9 recorridos detallados y optimizados</li>
+          <li><span class="check">✓</span> Mapa interactivo personalizado</li>
+          <li><span class="check">✓</span> +150 puntos de interés con descripciones</li>
+          <li><span class="check">✓</span> Rooftops, baños, spots de fotos secretos</li>
+          <li><span class="check">✓</span> Guía de museos con entradas gratis</li>
+          <li><span class="check">✓</span> Guía de shopping y outlets</li>
+          <li><span class="check">✓</span> Recomendaciones gastronómicas</li>
+          <li><span class="check">✓</span> Links y recursos actualizados</li>
+          <li><span class="check">✓</span> Adaptable a tu pronóstico del clima</li>
+        </ul>
+
+        <button class="btn-buy" id="buy-btn" onclick="handleBuy()">
+          Comprar Itinerario <span class="arrow">→</span>
+        </button>
+
+        <p class="pricing-guarantee">🔒 Pago seguro · Recibís el itinerario al instante</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ FAQ ============ -->
+  <section id="faq">
+    <div class="container">
+      <div class="faq-header reveal">
+        <p class="section-eyebrow">Preguntas frecuentes</p>
+        <h2 class="section-title">¿Tenés dudas?</h2>
+      </div>
+
+      <div class="faq-list reveal">
+        <div class="faq-item">
+          <button class="faq-question" onclick="toggleFAQ(this)">
+            ¿Cómo recibo el itinerario después de comprarlo?
+            <span class="faq-toggle">+</span>
+          </button>
+          <div class="faq-answer">
+            <p>Inmediatamente después de realizar el pago, recibís acceso al itinerario completo en formato digital. Incluye todos los recorridos, el mapa interactivo y los recursos adicionales.</p>
+          </div>
+        </div>
+
+        <div class="faq-item">
+          <button class="faq-question" onclick="toggleFAQ(this)">
+            ¿Es necesario seguir el orden de los recorridos?
+            <span class="faq-toggle">+</span>
+          </button>
+          <div class="faq-answer">
+            <p>No necesariamente. Cada recorrido indica el clima ideal, así que podés reorganizar los días según el pronóstico. El itinerario te da la flexibilidad de adaptarte sin perder nada.</p>
+          </div>
+        </div>
+
+        <div class="faq-item">
+          <button class="faq-question" onclick="toggleFAQ(this)">
+            ¿Sirve si ya conozco Nueva York?
+            <span class="faq-toggle">+</span>
+          </button>
+          <div class="faq-answer">
+            <p>Sí. Además de los puntos clásicos, el itinerario incluye spots poco conocidos, rooftops gratuitos, accesos secretos y datos que no vas a encontrar en guías comunes. Incluso si ya fuiste, vas a descubrir cosas nuevas.</p>
+          </div>
+        </div>
+
+        <div class="faq-item">
+          <button class="faq-question" onclick="toggleFAQ(this)">
+            ¿Cuántos días necesito para hacer todos los recorridos?
+            <span class="faq-toggle">+</span>
+          </button>
+          <div class="faq-answer">
+            <p>El itinerario tiene 9 recorridos principales más días de shopping opcionales. Podés adaptarlo según la duración de tu viaje: si tenés menos días, priorizás los recorridos que más te interesen usando las indicaciones de intensidad y clima.</p>
+          </div>
+        </div>
+
+        <div class="faq-item">
+          <button class="faq-question" onclick="toggleFAQ(this)">
+            ¿El mapa interactivo funciona offline?
+            <span class="faq-toggle">+</span>
+          </button>
+          <div class="faq-answer">
+            <p>El mapa interactivo funciona con conexión a internet. Te recomendamos descargarlo en tu dispositivo antes de salir del hotel o conectarte al WiFi de cualquier Starbucks o biblioteca pública para recargarlo.</p>
+          </div>
+        </div>
+
+        <div class="faq-item">
+          <button class="faq-question" onclick="toggleFAQ(this)">
+            ¿Incluye costos de entradas y transporte?
+            <span class="faq-toggle">+</span>
+          </button>
+          <div class="faq-answer">
+            <p>El itinerario detalla qué atracciones son gratuitas, cuáles requieren entrada y sus costos aproximados. También incluye los precios de ferry y transporte cuando aplica. Muchas de las recomendaciones son justamente para aprovechar accesos gratuitos.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ FOOTER ============ -->
+  <footer id="footer">
+    <div class="container">
+      <div class="footer-logo">VAN <span>NY</span></div>
+      <p class="footer-tagline">La forma más inteligente de recorrer Nueva York</p>
+      <div class="footer-divider"></div>
+      <p class="footer-copy">© 2025 VAN NY. Todos los derechos reservados.</p>
+    </div>
+  </footer>
+
+  <!-- ============ SCRIPTS ============ -->
+  <script>
+    // =============================================
+    // LOADING SCREEN
+    // =============================================
+    (function () {
+      const bar = document.getElementById('loading-bar');
+      const screen = document.getElementById('loading-screen');
+      let progress = 0;
+      const interval = setInterval(() => {
+        progress += Math.random() * 20 + 8;
+        if (progress >= 100) {
+          progress = 100;
+          clearInterval(interval);
+          bar.style.width = '100%';
+          setTimeout(() => {
+            screen.classList.add('loaded');
+            setTimeout(animateHero, 200);
+          }, 600);
+        }
+        bar.style.width = progress + '%';
+      }, 180);
+    })();
+
+    // =============================================
+    // HERO PARTICLE SYSTEM
+    // =============================================
+    (function () {
+      const canvas = document.getElementById('hero-particles');
+      if (!canvas) return;
+      const ctx = canvas.getContext('2d');
+      let particles = [];
+      let animId;
+
+      function resize() {
+        canvas.width = window.innerWidth;
+        canvas.height = window.innerHeight;
+      }
+      resize();
+      window.addEventListener('resize', resize);
+
+      class Particle {
+        constructor() { this.reset(); }
+        reset() {
+          this.x = Math.random() * canvas.width;
+          this.y = Math.random() * canvas.height;
+          this.size = Math.random() * 1.8 + 0.3;
+          this.speedX = (Math.random() - 0.5) * 0.25;
+          this.speedY = -Math.random() * 0.35 - 0.05;
+          this.opacity = Math.random() * 0.4 + 0.1;
+          this.fadeSpeed = Math.random() * 0.003 + 0.001;
+          this.growing = Math.random() > 0.5;
+        }
+        update() {
+          this.x += this.speedX;
+          this.y += this.speedY;
+          if (this.growing) {
+            this.opacity += this.fadeSpeed;
+            if (this.opacity >= 0.5) this.growing = false;
+          } else {
+            this.opacity -= this.fadeSpeed;
+            if (this.opacity <= 0) this.reset();
+          }
+          if (this.y < -10 || this.x < -10 || this.x > canvas.width + 10) this.reset();
+        }
+        draw() {
+          ctx.beginPath();
+          ctx.arc(this.x, this.y, this.size, 0, Math.PI * 2);
+          ctx.fillStyle = `rgba(184, 151, 106, ${this.opacity})`;
+          ctx.fill();
+        }
+      }
+
+      for (let i = 0; i < 50; i++) particles.push(new Particle());
+
+      function animate() {
+        ctx.clearRect(0, 0, canvas.width, canvas.height);
+        particles.forEach(p => { p.update(); p.draw(); });
+        animId = requestAnimationFrame(animate);
+      }
+      animate();
+
+      // Pause when not visible
+      const heroEl = document.getElementById('hero');
+      const pObserver = new IntersectionObserver(([e]) => {
+        if (e.isIntersecting) { if (!animId) animate(); }
+        else { cancelAnimationFrame(animId); animId = null; }
+      }, { threshold: 0.1 });
+      pObserver.observe(heroEl);
+    })();
+
+    // =============================================
+    // HERO ANIMATION — Cinematic Reveal
+    // =============================================
+    function animateHero() {
+      const eyebrow  = document.querySelector('.hero-eyebrow');
+      const line     = document.querySelector('.hero-line');
+      const titleWords = document.querySelectorAll('.hero-title-word');
+      const subtitle = document.querySelector('.hero-subtitle');
+      const bgImg    = document.getElementById('hero-bg-img');
+
+      if (bgImg) {
+        bgImg.style.transition = 'transform 25s cubic-bezier(0.25, 0.46, 0.45, 0.94), opacity 3s ease';
+        bgImg.style.transform = 'scale(1.05)';
+        bgImg.style.opacity = '0.5';
+      }
+
+      const anim = (el, delay, dur, props) => {
+        setTimeout(() => {
+          el.style.transition = `all ${dur}s var(--ease-out-expo)`;
+          Object.assign(el.style, props);
+        }, delay);
+      };
+
+      anim(eyebrow, 100, 1.2, { opacity: '1', transform: 'translateY(0)' });
+      anim(line, 450, 1, { opacity: '1', transform: 'scaleX(1)' });
+      
+      titleWords.forEach((word, idx) => {
+        setTimeout(() => {
+          word.style.transform = 'translateY(0)';
+        }, 650 + (idx * 150));
+      });
+
+      anim(subtitle, 1050, 1.2, { opacity: '1', transform: 'translateY(0)' });
+    }
+
+    // =============================================
+    // NAVBAR — Scroll Effect + Active Link
+    // =============================================
+    const nav = document.getElementById('main-nav');
+    const sections = document.querySelectorAll('section[id]');
+
+    window.addEventListener('scroll', () => {
+      const y = window.pageYOffset;
+      nav.classList.toggle('scrolled', y > 60);
+
+      // Active link tracking
+      let current = '';
+      sections.forEach(s => {
+        if (y >= s.offsetTop - 200) current = s.id;
+      });
+      document.querySelectorAll('.nav-links a').forEach(a => {
+        a.style.color = a.getAttribute('href') === '#' + current
+          ? 'var(--color-white)' : '';
+      });
+    });
+
+    // =============================================
+    // MOBILE MENU
+    // =============================================
+    const navToggle = document.getElementById('nav-toggle');
+    const navLinks = document.getElementById('nav-links');
+    navToggle.addEventListener('click', () => {
+      navToggle.classList.toggle('open');
+      navLinks.classList.toggle('open');
+      // Staggered fade in para los links en móvil
+      const links = navLinks.querySelectorAll('a');
+      links.forEach((link, index) => {
+        if (navLinks.classList.contains('open')) {
+          link.style.transitionDelay = `${0.1 + (index * 0.05)}s`;
+        } else {
+          link.style.transitionDelay = '0s';
+        }
+      });
+    });
+    navLinks.querySelectorAll('a').forEach(link => {
+      link.addEventListener('click', () => {
+        navToggle.classList.remove('open');
+        navLinks.classList.remove('open');
+      });
+    });
+
+    // =============================================
+    // SCROLL REVEAL (Intersection Observer)
+    // =============================================
+    const revealElements = document.querySelectorAll(
+      '.reveal, .reveal-left, .reveal-right, .reveal-scale, .stagger-children'
+    );
+    const revealObserver = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) entry.target.classList.add('visible');
+      });
+    }, { threshold: 0.12, rootMargin: '0px 0px -60px 0px' });
+    revealElements.forEach(el => revealObserver.observe(el));
+
+    // =============================================
+    // COUNTER ANIMATION
+    // =============================================
+    const counters = document.querySelectorAll('.stat-number[data-count]');
+    const counterObserver = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          const target = entry.target;
+          const count = parseInt(target.getAttribute('data-count'));
+          const suffix = target.getAttribute('data-suffix') || '';
+          let current = 0;
+          const duration = 1800;
+          const startTime = performance.now();
+
+          function easeOutExpo(t) {
+            return t === 1 ? 1 : 1 - Math.pow(2, -10 * t);
+          }
+
+          function step(now) {
+            const elapsed = now - startTime;
+            const progress = Math.min(elapsed / duration, 1);
+            current = Math.round(easeOutExpo(progress) * count);
+            target.textContent = current + suffix;
+            if (progress < 1) requestAnimationFrame(step);
+          }
+          requestAnimationFrame(step);
+          counterObserver.unobserve(target);
+        }
+      });
+    }, { threshold: 0.5 });
+    counters.forEach(c => counterObserver.observe(c));
+
+    // =============================================
+    // FEATURES — Sequential Activation
+    // =============================================
+    const featureItems = document.querySelectorAll('.feature-item');
+    const featureObserver = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) entry.target.classList.add('active');
+      });
+    }, { threshold: 0.25, rootMargin: '0px 0px -30px 0px' });
+    featureItems.forEach(item => featureObserver.observe(item));
+
+    // =============================================
+    // MAGNETIC FEATURE ICONS (Desktop)
+    // =============================================
+    const featureIcons = document.querySelectorAll('.feature-icon');
+    featureIcons.forEach(icon => {
+      icon.addEventListener('mousemove', (e) => {
+        if (window.innerWidth > 1024) {
+          const rect = icon.getBoundingClientRect();
+          const x = e.clientX - rect.left - rect.width / 2;
+          const y = e.clientY - rect.top - rect.height / 2;
+          icon.style.transform = `translate(${x * 0.4}px, ${y * 0.4}px) scale(1.1)`;
+        }
+      });
+      icon.addEventListener('mouseleave', () => {
+        icon.style.transform = `translate(0px, 0px) scale(1)`;
+      });
+    });
+
+    // =============================================
+    // MOBILE SCROLL PROGRESS BAR
+    // =============================================
+    const scrollContainers = document.querySelectorAll('.routes-grid, .included-grid');
+    scrollContainers.forEach(container => {
+      if (window.innerWidth <= 768) {
+        const track = document.createElement('div');
+        track.className = 'scroll-progress-track';
+        const bar = document.createElement('div');
+        bar.className = 'scroll-progress-bar';
+        track.appendChild(bar);
+        container.parentElement.insertBefore(track, container.nextSibling);
+        container.addEventListener('scroll', () => {
+          const maxScroll = container.scrollWidth - container.clientWidth;
+          const progress = (container.scrollLeft / maxScroll) * 100;
+          bar.style.width = `${progress}%`;
+        });
+      }
+    });
+
+    // =============================================
+    // 3D TILT EFFECT FOR ROUTE CARDS (Desktop Only)
+    // =============================================
+    const routeCards = document.querySelectorAll('.route-card');
+    routeCards.forEach(card => {
+      // Spotlight effect
+      card.addEventListener('mousemove', e => {
+        const rect = card.getBoundingClientRect();
+        card.style.setProperty('--mouse-x', `${e.clientX - rect.left}px`);
+        card.style.setProperty('--mouse-y', `${e.clientY - rect.top}px`);
+      });
+
+      const glare = document.createElement('div');
+      glare.className = 'route-card-glare';
+      card.appendChild(glare);
+
+      card.addEventListener('mouseenter', () => {
+        if (window.innerWidth > 1024) {
+          card.style.transition = 'none';
+          glare.style.opacity = '0.5';
+        }
+      });
+      card.addEventListener('mousemove', (e) => {
+        if (window.innerWidth > 1024) {
+          const rect = card.getBoundingClientRect();
+          const x = e.clientX - rect.left;
+          const y = e.clientY - rect.top;
+          const centerX = rect.width / 2;
+          const centerY = rect.height / 2;
+          const rotateX = ((y - centerY) / centerY) * -10;
+          const rotateY = ((x - centerX) / centerX) * 10;
+          card.style.transform = `perspective(1200px) rotateX(${rotateX}deg) rotateY(${rotateY}deg) scale3d(1.03, 1.03, 1.03)`;
+          glare.style.transform = `translate(${x - centerX}px, ${y - centerY}px)`;
+        }
+      });
+      card.addEventListener('mouseleave', () => {
+        if (window.innerWidth > 1024) {
+          card.style.transition = 'transform 0.7s cubic-bezier(0.16, 1, 0.3, 1)';
+          card.style.transform = `perspective(1000px) rotateX(0deg) rotateY(0deg) scale3d(1, 1, 1)`;
+          glare.style.opacity = '0';
+          glare.style.transition = 'opacity 0.7s ease';
+        }
+      });
+    });
+
+    // =============================================
+    // MAGNETIC BUTTONS (Desktop Only)
+    // =============================================
+    const magneticElements = document.querySelectorAll('.nav-cta, .btn-buy');
+    magneticElements.forEach(elem => {
+      elem.addEventListener('mousemove', (e) => {
+        if (window.innerWidth > 1024) {
+          const rect = elem.getBoundingClientRect();
+          const x = e.clientX - rect.left - rect.width / 2;
+          const y = e.clientY - rect.top - rect.height / 2;
+          // Gravedad magnética suave
+          elem.style.transform = `translate(${x * 0.3}px, ${y * 0.3}px)`;
+        }
+      });
+      elem.addEventListener('mouseleave', () => {
+        elem.style.transform = `translate(0px, 0px)`;
+      });
+    });
+
+    // =============================================
+    // PRICING AMBIENT GLOW MOUSE TRACKING
+    // =============================================
+    const pricingSection = document.getElementById('pricing');
+    const pricingGlow = document.querySelector('.pricing-ambient-glow');
+    if (pricingSection && pricingGlow && window.innerWidth > 1024) {
+      pricingSection.addEventListener('mousemove', e => {
+        const rect = pricingSection.getBoundingClientRect();
+        pricingGlow.style.transform = `translate(calc(-50% + ${(e.clientX - rect.left - rect.width/2) * 0.08}px), calc(-50% + ${(e.clientY - rect.top - rect.height/2) * 0.08}px))`;
+      });
+    }
+
+    // =============================================
+    // MOBILE SNAP HIGHLIGHTING
+    // =============================================
+    if (window.innerWidth <= 768) {
+      const snapObserver = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+          if (entry.isIntersecting) entry.target.classList.add('snap-centered');
+          else entry.target.classList.remove('snap-centered');
+        });
+      }, { root: null, rootMargin: '0px -40% 0px -40%', threshold: 0 });
+      document.querySelectorAll('.route-card, .included-item').forEach(el => snapObserver.observe(el));
+    }
+
+    // =============================================
+    // FLUID LERP PARALLAX (Hero, Gallery, Quote)
+    // =============================================
+    let currentScroll = window.pageYOffset;
+    let targetScroll = window.pageYOffset;
+    const galleryImages = document.querySelectorAll('.gallery-image img');
+    const bgParallax = document.getElementById('hero-bg-parallax');
+    const heroEl = document.getElementById('hero');
+    const quoteMarks = document.getElementById('quote-marks');
+
+    function renderParallax() {
+      targetScroll = window.pageYOffset;
+      currentScroll += (targetScroll - currentScroll) * 0.1; // Lerp smoothing factor
+      const scrollVelocity = targetScroll - currentScroll;
+      const skewAmt = Math.max(-4, Math.min(4, scrollVelocity * 0.02));
+
+      // Gallery Parallax & Skew
+      galleryImages.forEach(img => {
+        const absoluteTop = img.parentElement.getBoundingClientRect().top + window.pageYOffset;
+        const relativeTop = absoluteTop - currentScroll;
+        if(relativeTop < window.innerHeight && relativeTop > -img.parentElement.offsetHeight) {
+          const scrollPercent = (window.innerHeight - relativeTop) / (window.innerHeight + img.parentElement.offsetHeight);
+          const move = (scrollPercent - 0.5) * 70; 
+          img.style.transform = `scale(1.15) translateY(${move}px) skewY(${skewAmt}deg)`;
+        }
+      });
+
+      // Hero Parallax
+      if (bgParallax && heroEl) {
+        if (currentScroll < heroEl.offsetHeight) {
+          const heroParallaxY = currentScroll * 0.4;
+          bgParallax.style.transform = `translate3d(0, ${heroParallaxY}px, 0)`;
+        }
+      }
+
+      // Quote Parallax
+      if (quoteMarks) {
+        const qAbsoluteTop = quoteMarks.parentElement.getBoundingClientRect().top + window.pageYOffset;
+        const qRelativeTop = qAbsoluteTop - currentScroll;
+        if (qRelativeTop < window.innerHeight && qRelativeTop > -300) {
+          const qScrollPercent = (window.innerHeight - qRelativeTop) / (window.innerHeight + 300);
+          const qMove = (qScrollPercent - 0.5) * -80;
+          quoteMarks.style.transform = `translateY(${qMove}px)`;
+        }
+      }
+      requestAnimationFrame(renderParallax);
+    }
+    requestAnimationFrame(renderParallax);
+
+    // =============================================
+    // FAQ TOGGLE
+    // =============================================
+    function toggleFAQ(button) {
+      const faqItem = button.parentElement;
+      const isOpen = faqItem.classList.contains('open');
+      document.querySelectorAll('.faq-item').forEach(item => item.classList.remove('open'));
+      if (!isOpen) faqItem.classList.add('open');
+    }
+
+    // =============================================
+    // SMOOTH SCROLL
+    // =============================================
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+      anchor.addEventListener('click', function (e) {
+        e.preventDefault();
+        const target = document.querySelector(this.getAttribute('href'));
+        if (target) {
+          const offset = window.innerHeight > 800 ? 100 : 72;
+          const pos = target.getBoundingClientRect().top + window.pageYOffset - offset;
+          window.scrollTo({ top: pos, behavior: 'smooth' });
+        }
+      });
+    });
+
+    // =============================================
+    // BUY ACTION
+    // =============================================
+    function handleBuy() {
+      alert('¡Gracias por tu interés! Esta funcionalidad se conectará con tu pasarela de pago.');
+    }
+
+    // =============================================
+    // CURSOR GLOW — GPU Accelerated
+    // =============================================
+    if (window.matchMedia('(hover: hover)').matches) {
+      document.body.classList.add('custom-cursor');
+      const glow = document.createElement('div');
+      glow.className = 'cursor-glow';
+      glow.style.cssText = `
+        position: fixed; width: 40px; height: 40px; border-radius: 50%;
+        background: rgba(255, 255, 255, 1); mix-blend-mode: difference;
+        pointer-events: none; z-index: 9999;
+        transform: translate(-50%, -50%) scale(1); will-change: left, top, transform;
+        transition: opacity 0.5s, transform 0.4s var(--ease-out-expo), background 0.4s; opacity: 0;
+      `;
+      document.body.appendChild(glow);
+
+      let glowX = 0, glowY = 0, targetX = 0, targetY = 0;
+
+      document.addEventListener('mousemove', (e) => {
+        targetX = e.clientX; targetY = e.clientY;
+        if (glow.style.opacity === '0') glow.style.opacity = '1';
+      });
+      document.addEventListener('mouseleave', () => { glow.style.opacity = '0'; });
+
+      const interactives = document.querySelectorAll('a, button, .route-card, .faq-question, .included-item, .feature-icon');
+      interactives.forEach(el => {
+        el.addEventListener('mouseenter', () => {
+          glow.style.transform = 'translate(-50%, -50%) scale(2.5)';
+          glow.style.background = 'rgba(255, 255, 255, 0.8)';
+        });
+        el.addEventListener('mouseleave', () => {
+          glow.style.transform = 'translate(-50%, -50%) scale(1)';
+          glow.style.background = 'rgba(255, 255, 255, 1)';
+        });
+      });
+
+      function animGlow() {
+        glowX += (targetX - glowX) * 0.35;
+        glowY += (targetY - glowY) * 0.35;
+        glow.style.left = glowX + 'px';
+        glow.style.top = glowY + 'px';
+        requestAnimationFrame(animGlow);
+      }
+      requestAnimationFrame(animGlow);
+    }
+  </script>
+</body>
+</html>
