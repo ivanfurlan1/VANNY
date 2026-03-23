@@ -254,45 +254,50 @@
 
   <!-- ============ GALLERY ============ -->
   <section id="gallery">
-    <!-- Row 1 -->
-    <div class="gallery-row">
-      <div class="gallery-image reveal">
-        <img src="images/dumbo_manhattan_bridge.png" alt="Manhattan Bridge desde Dumbo" />
+    <div class="gallery-container">
+      <!-- Item 1 -->
+      <div class="gallery-item">
+        <div class="gallery-image-wrapper reveal-scale">
+          <img src="https://images.unsplash.com/photo-1496442226666-8d4d0e62e6e9?q=80&w=2000&auto=format&fit=crop" alt="Manhattan Bridge desde Dumbo" class="parallax-img" />
+          <div class="gallery-overlay"></div>
+        </div>
+        <div class="gallery-content reveal-left">
+          <p class="section-eyebrow">Rutas optimizadas</p>
+          <h3 class="section-title">Caminá más,<br><em>gastá menos</em></h3>
+          <p class="gallery-description">
+            Las rutas están diseñadas para aprovechar al máximo cada paso. Solo usás el subte cuando realmente hace falta, lo que permite descubrir rincones que otros pasan de largo, y ahorrás en transporte sin sacrificar nada del recorrido.
+          </p>
+        </div>
       </div>
-      <div class="gallery-text">
-        <p class="section-eyebrow">Rutas optimizadas</p>
-        <h3 class="section-title">Caminá más, <em>gastá menos</em></h3>
-        <p class="gallery-description">
-          Las rutas están diseñadas para aprovechar al máximo cada paso. Solo usás el subte cuando realmente hace falta, lo que permite descubrir rincones que otros pasan de largo, y ahorrás en transporte sin sacrificar nada del recorrido.
-        </p>
-      </div>
-    </div>
 
-    <!-- Row 2 -->
-    <div class="gallery-row">
-      <div class="gallery-image reveal">
-        <img src="images/central_park_aerial.png" alt="Central Park desde arriba" />
+      <!-- Item 2 -->
+      <div class="gallery-item">
+        <div class="gallery-image-wrapper reveal-scale">
+          <img src="https://images.unsplash.com/photo-1546436836-07a91091f160?q=80&w=2000&auto=format&fit=crop" alt="Central Park desde arriba" class="parallax-img" />
+          <div class="gallery-overlay"></div>
+        </div>
+        <div class="gallery-content reveal-right">
+          <p class="section-eyebrow">Todo pensado</p>
+          <h3 class="section-title">Hasta el último<br><em>detalle</em></h3>
+          <p class="gallery-description">
+            Desde la vista impactante al salir de una estación de subte específica hasta terminar el día en el lugar y momento justo. Cada parada, cada giro, cada decisión está pensada para que tu experiencia sea completa.
+          </p>
+        </div>
       </div>
-      <div class="gallery-text">
-        <p class="section-eyebrow">Todo pensado</p>
-        <h3 class="section-title">Hasta el último <em>detalle</em></h3>
-        <p class="gallery-description">
-          Desde la vista impactante al salir de una estación de subte específica hasta terminar el día en el lugar y momento justo. Cada parada, cada giro, cada decisión está pensada para que tu experiencia sea completa.
-        </p>
-      </div>
-    </div>
 
-    <!-- Row 3 -->
-    <div class="gallery-row">
-      <div class="gallery-image reveal">
-        <img src="images/travel_flatlay.png" alt="Guía de viaje premium" />
-      </div>
-      <div class="gallery-text">
-        <p class="section-eyebrow">Más que turismo</p>
-        <h3 class="section-title">Una mirada <em>distinta</em></h3>
-        <p class="gallery-description">
-          No es solo un listado de lugares. Es una forma de entender la ciudad: curiosidades históricas, datos de arquitectura, spots para fotos únicas y recomendaciones que no vas a encontrar en ninguna guía convencional.
-        </p>
+      <!-- Item 3 -->
+      <div class="gallery-item">
+        <div class="gallery-image-wrapper reveal-scale">
+          <img src="https://images.unsplash.com/photo-1522083111333-81a4a441569c?q=80&w=2000&auto=format&fit=crop" alt="Guía de viaje premium" class="parallax-img" />
+          <div class="gallery-overlay"></div>
+        </div>
+        <div class="gallery-content reveal-left">
+          <p class="section-eyebrow">Más que turismo</p>
+          <h3 class="section-title">Una mirada<br><em>distinta</em></h3>
+          <p class="gallery-description">
+            No es solo un listado de lugares. Es una forma de entender la ciudad: curiosidades históricas, datos de arquitectura, spots para fotos únicas y recomendaciones que no vas a encontrar en ninguna guía convencional.
+          </p>
+        </div>
       </div>
     </div>
   </section>
@@ -921,7 +926,7 @@
     // =============================================
     let currentScroll = window.pageYOffset;
     let targetScroll = window.pageYOffset;
-    const galleryImages = document.querySelectorAll('.gallery-image img');
+    const parallaxImages = document.querySelectorAll('.parallax-img');
     const bgParallax = document.getElementById('hero-bg-parallax');
     const heroEl = document.getElementById('hero');
     const quoteMarks = document.getElementById('quote-marks');
@@ -929,17 +934,18 @@
     function renderParallax() {
       targetScroll = window.pageYOffset;
       currentScroll += (targetScroll - currentScroll) * 0.1; // Lerp smoothing factor
-      const scrollVelocity = targetScroll - currentScroll;
-      const skewAmt = Math.max(-4, Math.min(4, scrollVelocity * 0.02));
 
-      // Gallery Parallax & Skew
-      galleryImages.forEach(img => {
-        const absoluteTop = img.parentElement.getBoundingClientRect().top + window.pageYOffset;
-        const relativeTop = absoluteTop - currentScroll;
-        if(relativeTop < window.innerHeight && relativeTop > -img.parentElement.offsetHeight) {
-          const scrollPercent = (window.innerHeight - relativeTop) / (window.innerHeight + img.parentElement.offsetHeight);
-          const move = (scrollPercent - 0.5) * 70; 
-          img.style.transform = `scale(1.15) translateY(${move}px) skewY(${skewAmt}deg)`;
+      // Smooth Elegant Parallax for Gallery
+      parallaxImages.forEach(img => {
+        const wrapper = img.parentElement;
+        const rect = wrapper.getBoundingClientRect();
+        
+        // Only animate if in viewport
+        if (rect.top < window.innerHeight && rect.bottom > 0) {
+          const progress = (window.innerHeight - rect.top) / (window.innerHeight + rect.height);
+          // Smoothly translate Y from -10% to 10% inside the oversized image
+          const move = (progress - 0.5) * 20; 
+          img.style.transform = `translate3d(0, ${move}%, 0)`;
         }
       });
 
