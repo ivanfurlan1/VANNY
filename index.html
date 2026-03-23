@@ -886,6 +886,41 @@
     }
 
     // =============================================
+    // 3D TILT EFFECT FOR PRICING CARD (Desktop Only)
+    // =============================================
+    const pricingTiltCard = document.querySelector('.pricing-card');
+    if (pricingTiltCard) {
+      pricingTiltCard.addEventListener('mouseenter', () => {
+        if (window.innerWidth > 1024) {
+          pricingTiltCard.style.transition = 'transform 0.15s ease-out, box-shadow 0.15s ease-out';
+        }
+      });
+      pricingTiltCard.addEventListener('mousemove', (e) => {
+        if (window.innerWidth > 1024) {
+          const rect = pricingTiltCard.getBoundingClientRect();
+          const x = e.clientX - rect.left;
+          const y = e.clientY - rect.top;
+          const centerX = rect.width / 2;
+          const centerY = rect.height / 2;
+          
+          // Inclinación muy sutil y elegante para una tarjeta grande
+          const rotateX = ((y - centerY) / centerY) * -3.5;
+          const rotateY = ((x - centerX) / centerX) * 3.5;
+          
+          // Mantenemos el translateY(-5px) del CSS base para que no haya un "salto" al mover el ratón
+          pricingTiltCard.style.transform = `perspective(1200px) translateY(-5px) rotateX(${rotateX}deg) rotateY(${rotateY}deg) scale3d(1.02, 1.02, 1.02)`;
+        }
+      });
+      pricingTiltCard.addEventListener('mouseleave', () => {
+        if (window.innerWidth > 1024) {
+          // Al quitar los estilos en línea, el CSS recupera el control y vuelve suavemente a la posición original
+          pricingTiltCard.style.transition = '';
+          pricingTiltCard.style.transform = '';
+        }
+      });
+    }
+
+    // =============================================
     // MOBILE SNAP HIGHLIGHTING
     // =============================================
     if (window.innerWidth <= 768) {
