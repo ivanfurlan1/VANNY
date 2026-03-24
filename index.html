@@ -749,6 +749,56 @@
     })();
 
     // =============================================
+    // PEEK SCROLL (HINT TO SCROLL DOWN)
+    // =============================================
+    let userHasScrolled = false;
+    let peekAnimId = null;
+
+    const abortScrollHint = () => { 
+      userHasScrolled = true; 
+      if (peekAnimId) {
+        cancelAnimationFrame(peekAnimId);
+        peekAnimId = null;
+        document.documentElement.style.scrollBehavior = ''; // Restaura el CSS si el usuario interrumpe
+      }
+    };
+
+    // Escuchamos intenciones reales del usuario (no eventos de scroll del sistema)
+    ['wheel', 'touchstart', 'mousedown', 'keydown'].forEach(evt => 
+      window.addEventListener(evt, abortScrollHint, { passive: true, once: true })
+    );
+
+    function hintScroll() {
+      if (userHasScrolled || window.scrollY > 10) return;
+      
+      // Clave: desactivar el smooth scroll de CSS momentáneamente para que no pelee con JS
+      document.documentElement.style.scrollBehavior = 'auto';
+      
+      const bounceDistance = Math.min(window.innerHeight * 0.08, 55); // Movimiento máximo de 55px
+      const duration = 2200; // 2.2 segundos para una curva lenta y majestuosa
+      const start = performance.now();
+
+      function step(now) {
+        if (userHasScrolled) return;
+        
+        const elapsed = now - start;
+        let progress = elapsed / duration;
+
+        if (progress < 1) {
+          // Curva sinusoidal: arranca lento, frena abajo y sube suave (efecto respiración)
+          const ease = (1 - Math.cos(progress * Math.PI * 2)) / 2;
+          window.scrollTo(0, ease * bounceDistance);
+          peekAnimId = requestAnimationFrame(step);
+        } else {
+          window.scrollTo(0, 0);
+          document.documentElement.style.scrollBehavior = ''; // Le devolvemos el control a tu CSS
+          peekAnimId = null;
+        }
+      }
+      peekAnimId = requestAnimationFrame(step);
+    }
+
+    // =============================================
     // HERO ANIMATION — Cinematic Reveal
     // =============================================
     function animateHero() {
@@ -781,6 +831,9 @@
       });
 
       anim(subtitle, 1050, 1.2, { opacity: '1', transform: 'translateY(0)' });
+      
+      // Disparamos el rebote de toda la pantalla un poco después de que termine la animación
+      setTimeout(hintScroll, 3200);
     }
 
     // =============================================
