@@ -1108,7 +1108,7 @@ body.custom-cursor .feature-card {
   font-weight: 800;
   line-height: 1;
   white-space: nowrap;
-  background: linear-gradient(135deg, rgba(184,151,106,0.09), rgba(184,151,106,0.03));
+  background: linear-gradient(135deg, rgba(184,151,106,0.09), rgba(184,151,106,0.02));
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   background-clip: text;
