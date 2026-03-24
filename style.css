@@ -91,6 +91,35 @@ body.custom-cursor .feature-card {
   cursor: none !important;
 }
 
+/* Custom Cursor Elements */
+.cursor-core {
+  position: fixed; top: 0; left: 0;
+  width: 6px; height: 6px;
+  background: var(--color-gold);
+  border: 1px solid transparent;
+  border-radius: 50%;
+  pointer-events: none; z-index: 10000;
+  display: flex; align-items: center; justify-content: center;
+  opacity: 0;
+  box-shadow: 0 1px 4px rgba(0, 0, 0, 0.4);
+  transition: width 0.4s var(--ease-out-expo), height 0.4s var(--ease-out-expo), background-color 0.4s ease, border-color 0.4s ease, box-shadow 0.4s ease, opacity 0.3s ease;
+  will-change: transform, width, height;
+}
+/* Enlaces: Anillo vacío que enmarca el texto */
+.cursor-core.hover-link {
+  width: 36px; height: 36px;
+  background-color: transparent;
+  border-color: rgba(184, 151, 106, 0.6);
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
+}
+/* Tarjetas: Anillo vacío más amplio */
+.cursor-core.hover-card {
+  width: 50px; height: 50px;
+  background-color: transparent;
+  border-color: rgba(184, 151, 106, 0.4);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+}
+
 /* ============================================
    LOADING SCREEN — Cinematic Split Reveal
    ============================================ */
@@ -857,13 +886,13 @@ body.custom-cursor .feature-card {
   transform: scaleX(0);
   transition: transform 0.6s var(--ease-out-expo);
 }
-.feature-card:hover {
+.feature-card:hover, .feature-card.active-center {
   transform: translateY(-8px);
   box-shadow: 0 20px 40px rgba(0,0,0,0.05), 0 8px 20px rgba(184,151,106,0.08);
   border-color: rgba(184, 151, 106, 0.25);
 }
-.feature-card:hover::before { opacity: 1; }
-.feature-card:hover::after { transform: scaleX(1); }
+.feature-card:hover::before, .feature-card.active-center::before { opacity: 1; }
+.feature-card:hover::after, .feature-card.active-center::after { transform: scaleX(1); }
 .feature-card-icon {
   width: 65px; height: 65px;
   background: rgba(184, 151, 106, 0.05);
@@ -879,13 +908,13 @@ body.custom-cursor .feature-card {
   stroke-width: 1.5px;
   transition: transform 0.6s var(--ease-spring);
 }
-.feature-card:hover .feature-card-icon {
+.feature-card:hover .feature-card-icon, .feature-card.active-center .feature-card-icon {
   background: linear-gradient(135deg, var(--color-gold-dark), var(--color-gold));
   color: var(--color-white); border-color: transparent;
   transform: scale(1.1);
   box-shadow: 0 10px 25px rgba(184, 151, 106, 0.3);
 }
-.feature-card:hover .feature-card-icon svg { transform: scale(1.1); }
+.feature-card:hover .feature-card-icon svg, .feature-card.active-center .feature-card-icon svg { transform: scale(1.1); }
 .feature-title {
   font-family: var(--font-display); font-size: 1.15rem;
   font-weight: 600; color: var(--color-charcoal);
@@ -1371,20 +1400,21 @@ body.custom-cursor .feature-card {
 /* Cinematic Mask Reveal */
 .reveal-mask {
   position: relative; overflow: hidden;
+  --mask-scale: 1;
+  --img-scale: 1.2;
+  --img-opacity: 0;
 }
 .reveal-mask::before {
   content: ''; position: absolute; inset: 0;
   background: var(--color-anthracite); z-index: 2;
   transform-origin: right;
-  transition: transform 1.6s cubic-bezier(0.77, 0, 0.175, 1);
+  transform: scaleX(var(--mask-scale));
+  will-change: transform;
 }
-.reveal-mask.visible::before { transform: scaleX(0); }
 .reveal-mask img {
-  transform: scale(1.2); opacity: 0;
-  transition: transform 2.5s cubic-bezier(0.25, 0.46, 0.45, 0.94), opacity 0.1s;
-}
-.reveal-mask.visible img {
-  transform: scale(1); opacity: 1;
+  transform: scale(var(--img-scale)); 
+  opacity: var(--img-opacity);
+  will-change: transform, opacity;
 }
 
 /* Staggered */

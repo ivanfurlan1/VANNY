@@ -1091,6 +1091,17 @@
         });
       }, { root: null, rootMargin: '0px -40% 0px -40%', threshold: 0 });
       document.querySelectorAll('.route-card, .included-item').forEach(el => snapObserver.observe(el));
+
+      // =============================================
+      // FEATURE CARDS VERTICAL CENTER HIGHLIGHTING
+      // =============================================
+      const featureCenterObserver = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+          if (entry.isIntersecting) entry.target.classList.add('active-center');
+          else entry.target.classList.remove('active-center');
+        });
+      }, { root: null, rootMargin: '-45% 0px -45% 0px', threshold: 0 });
+      document.querySelectorAll('.feature-card').forEach(el => featureCenterObserver.observe(el));
     }
 
     // =============================================
@@ -1168,6 +1179,31 @@
         });
       }
 
+      // Apertura de fotos en galería vinculada al Scroll
+      const galleryVisuals = document.querySelectorAll('.gallery-visual.reveal-mask');
+      if (galleryVisuals.length > 0) {
+        galleryVisuals.forEach(visual => {
+          const absoluteTop = visual.getBoundingClientRect().top + window.pageYOffset;
+          const relativeTop = absoluteTop - currentScroll;
+          const viewportHeight = window.innerHeight;
+          
+          // La animación arranca apenas entra en la pantalla y termina al llegar arriba
+          const start = viewportHeight - 100; 
+          const end = viewportHeight * 0.25;
+          
+          const totalDistance = start - end;
+          const currentDistance = start - relativeTop;
+          
+          let progress = currentDistance / totalDistance;
+          progress = Math.max(0, Math.min(1, progress));
+          
+          // Actualizamos dinámicamente las variables de CSS
+          visual.style.setProperty('--mask-scale', (1 - progress).toFixed(3));
+          visual.style.setProperty('--img-scale', (1.2 - (0.2 * progress)).toFixed(3));
+          visual.style.setProperty('--img-opacity', Math.min(1, progress * 1.5).toFixed(3));
+        });
+      }
+
       requestAnimationFrame(renderParallax);
     }
     requestAnimationFrame(renderParallax);
@@ -1205,52 +1241,57 @@
     }
 
     // =============================================
-    // CURSOR GLOW — GPU Accelerated
+    // MINIMALIST ACTION CURSOR
     // =============================================
     if (window.innerWidth > 768 && window.matchMedia("(pointer: fine)").matches) {
       document.body.classList.add('custom-cursor');
-      const glow = document.createElement('div');
-      glow.className = 'cursor-glow';
-      glow.style.cssText = `
-        position: fixed; width: 40px; height: 40px; border-radius: 50%;
-        background: rgba(255, 255, 255, 1); mix-blend-mode: difference;
-        pointer-events: none; z-index: 9999;
-        transform: translate(-50%, -50%) scale(1); will-change: left, top, transform;
-        transition: opacity 0.5s, transform 0.4s var(--ease-out-expo), background 0.4s; opacity: 0;
-      `;
-      document.body.appendChild(glow);
 
-      let glowX = 0, glowY = 0, targetX = 0, targetY = 0;
+      const cursorCore = document.createElement('div');
+      cursorCore.className = 'cursor-core';
+      
+      document.body.appendChild(cursorCore);
 
-      // Eventos de mouse para escritorio
+      let mouseX = -100, mouseY = -100;
+      let coreX = -100, coreY = -100;
+      let isVisible = false;
+
+      // Eventos de mouse
       document.addEventListener('mousemove', (e) => {
-        targetX = e.clientX; targetY = e.clientY;
-        if (glow.style.opacity === '0') glow.style.opacity = '1';
+        mouseX = e.clientX;
+        mouseY = e.clientY;
+        if (!isVisible) {
+          isVisible = true;
+          cursorCore.style.opacity = '1';
+        }
       });
       document.addEventListener('mouseleave', () => { 
-        glow.style.opacity = '0'; 
+        isVisible = false;
+        cursorCore.style.opacity = '0'; 
       });
 
-      const interactives = document.querySelectorAll('a, button, .route-card, .faq-question, .included-item, .feature-card');
-      interactives.forEach(el => {
-        el.addEventListener('mouseenter', () => {
-          glow.style.transform = 'translate(-50%, -50%) scale(2.5)';
-          glow.style.background = 'rgba(255, 255, 255, 0.8)';
-        });
-        el.addEventListener('mouseleave', () => {
-          glow.style.transform = 'translate(-50%, -50%) scale(1)';
-          glow.style.background = 'rgba(255, 255, 255, 1)';
-        });
+      // Interacciones para enlaces y botones
+      const links = document.querySelectorAll('a, button, .faq-question');
+      links.forEach(el => {
+        el.addEventListener('mouseenter', () => cursorCore.classList.add('hover-link'));
+        el.addEventListener('mouseleave', () => cursorCore.classList.remove('hover-link'));
       });
 
-      function animGlow() {
-        glowX += (targetX - glowX) * 0.35;
-        glowY += (targetY - glowY) * 0.35;
-        glow.style.left = glowX + 'px';
-        glow.style.top = glowY + 'px';
-        requestAnimationFrame(animGlow);
+      // Interacciones para tarjetas grandes
+      const cards = document.querySelectorAll('.route-card, .included-item, .feature-card, .gallery-visual');
+      cards.forEach(el => {
+        el.addEventListener('mouseenter', () => cursorCore.classList.add('hover-card'));
+        el.addEventListener('mouseleave', () => cursorCore.classList.remove('hover-card'));
+      });
+
+      function renderCursor() {
+        coreX += (mouseX - coreX) * 0.25;
+        coreY += (mouseY - coreY) * 0.25;
+        
+        cursorCore.style.transform = `translate3d(calc(${coreX}px - 50%), calc(${coreY}px - 50%), 0)`;
+        
+        requestAnimationFrame(renderCursor);
       }
-      requestAnimationFrame(animGlow);
+      requestAnimationFrame(renderCursor);
     }
   </script>
 </body>
